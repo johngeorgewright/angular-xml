@@ -5,9 +5,9 @@
     win
         .angular
         .module('xml', [])
-        .config(function ($provide) {
+        .config(['$provide', function ($provide) {
             
-            $provide.factory('xmlHttpInterceptor', function ($window, xmlFilter) {
+            $provide.factory('xmlHttpInterceptor', ['$window', 'xmlFilter', function ($window, xmlFilter) {
                 return function (promise) {
                     return promise.then(function (response) {
                         response.xml = xmlFilter(response.data);
@@ -15,10 +15,10 @@
                         return response;
                     });
                 };
-            });
+            }]);
             
-        })
-        .filter('xml', function ($window) {
+        }])
+        .filter('xml', ['$window', function ($window) {
             return function (input) {
                 
                 var xmlDoc, parser;
@@ -38,6 +38,6 @@
                 return xmlDoc;
                 
             };
-        });
+        }]);
     
 }(this));
