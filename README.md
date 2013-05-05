@@ -38,6 +38,8 @@ It provides 2 XML helpers:
                 blogs.push(blog.attrs());
             }
         });
+
+        $scope.blogs = blogs;
     }
     ```
     
