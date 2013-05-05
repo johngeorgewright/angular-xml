@@ -37,9 +37,9 @@ It provides 2 XML helpers:
                 blog = angular.element(els[i]);
                 blogs.push(blog.attrs());
             }
-        });
 
-        $scope.blogs = blogs;
+            $scope.blogs = blogs;
+        });
     }
     ```
     
