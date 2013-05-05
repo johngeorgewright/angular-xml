@@ -19,7 +19,7 @@ It provides 2 XML helpers:
 
     ```js
     angular
-        .module('blogs', [])
+        .module('blogs', ['xml'])
         .config(function ($httpProvider) {
             $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
         });
