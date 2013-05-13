@@ -35,7 +35,10 @@ It provides 2 XML helpers:
             
             for (i = 0; i < els.length; i += 1) {
                 blog = angular.element(els[i]);
-                blogs.push(blog.attrs());
+                blogs.push({
+                  name: blog.attr('name'),
+                  id: blog.attr('id')
+                });
             }
 
             $scope.blogs = blogs;
@@ -49,14 +52,13 @@ It provides 2 XML helpers:
         <head>
             <title>Blogs</title>
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
             <script src="angular-xml.min.js"></script>
             <script src="blogs.js"></script>
         </head>
         <body ng-controller="BlogsCtrl">
             <ul>
                 <li ng-repeat="blog in blogs">
-                    {{blog.name}}
+                    {{blog.id}} - {{blog.name}}
                 </li>
             </ul>
         </body>
