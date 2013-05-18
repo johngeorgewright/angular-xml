@@ -1,17 +1,17 @@
 (function (win) {
   
   "use strict";
+
+  var ng = win.angular;
   
-  win
-    .angular
+  ng
     .module('xml', [])
     .config(['$provide', function ($provide) {
       
-      $provide.factory('xmlHttpInterceptor', ['$window', 'xmlFilter', function ($window, xmlFilter) {
+      $provide.factory('xmlHttpInterceptor', ['xmlFilter', function (xmlFilter) {
         return function (promise) {
           return promise.then(function (response) {
             response.xml = xmlFilter(response.data);
-            response.xml = $window.angular.element(response.xml);
             return response;
           });
         };
@@ -34,8 +34,8 @@
         } else {
           throw new Error('Cannot parse XML in this environment.');
         }
-        
-        return xmlDoc;
+
+        return ng.element(xmlDoc);
         
       };
     }]);
