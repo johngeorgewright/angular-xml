@@ -1,0 +1,14 @@
+{
+  "name": "angular-xml",
+  "version": "0.0.0",
+  "main": "angular-xml.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "~1.0.6",
+    "angular-mocks": "~1.0.6"
+  }
+}
