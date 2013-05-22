@@ -1,13 +1,13 @@
 {
   "name": "angular-xml",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "main": "angular-xml.js",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "components"
+    "**/*.swp",
+    "components",
+    "test"
   ],
-  "dependencies": {
+  "devDependencies": {
     "angular": "~1.0.6",
     "angular-mocks": "~1.0.6"
   }
