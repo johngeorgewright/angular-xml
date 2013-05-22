@@ -65,6 +65,15 @@ It provides 2 XML helpers:
     </html>
     ```
 
+Installation
+------------
+
+Either download the latest tag, or use bower:
+
+```sh
+bower i --save angular-xml
+```
+
 Tests
 -----
 
