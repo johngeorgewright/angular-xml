@@ -90,3 +90,9 @@ The tests run with karma.
 karma start test/karma.js
 ```
 
+Compiling
+---------
+
+The source file `angular-xml.js` can be minifed and checked for problems using a grunt command. First make sure you have installed all npm dependencies `npm i`. Then run `grunt`.
+
+
