@@ -1,3 +1,5 @@
+/* jshint undef: false */
+
 // Karma configuration
 // Generated on Sat May 18 2013 18:20:34 GMT+0100 (BST)
 

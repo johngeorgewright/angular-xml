@@ -1,4 +1,4 @@
-/*global: angular describe it beforeEach afterEach module inject jasmine */
+/*global angular, describe, expect, it, beforeEach, module, inject, jasmine, spyOn*/
 
 describe('xml', function () {
 
