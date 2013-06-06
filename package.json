@@ -1,0 +1,32 @@
+{
+  "name": "angular-xml",
+  "version": "0.1.0",
+  "description": "XML module for AngularJS.",
+  "main": "angular-xml.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-http": "~0.0.2",
+    "grunt-contrib-jshint": "~0.6.0"
+  },
+  "scripts": {
+    "test": "karma start test/karma.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/johngeorgewright/angular-xml.git"
+  },
+  "keywords": [
+    "angular",
+    "xml"
+  ],
+  "author": "John Wright <johngeorge.wright@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "818239745e3953f67761b27a17ac7c43a23ee690",
+  "bugs": {
+    "url": "https://github.com/johngeorgewright/angular-xml/issues"
+  }
+}
