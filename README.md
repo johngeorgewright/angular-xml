@@ -64,3 +64,29 @@ It provides 2 XML helpers:
         </body>
     </html>
     ```
+
+Installation
+------------
+
+Either download the latest tag, or use bower:
+
+```sh
+bower i --save angular-xml
+```
+
+Tests
+-----
+
+The tests run with karma.
+
+### Installing karma
+
+1. Install Node.js
+2. `npm i -g karma`
+
+### Run the test suite
+
+```
+karma start test/karma.js
+```
+
