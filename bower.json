@@ -4,7 +4,12 @@
   "main": "angular-xml.js",
   "ignore": [
     "**/*.swp",
+    ".gitignore",
     "components",
+    "Gruntfile.js",
+    "node_modules",
+    "package.json",
+    "README.md",
     "test"
   ],
   "devDependencies": {
