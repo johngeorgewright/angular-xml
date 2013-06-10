@@ -5,7 +5,7 @@ XML module for AngularJS.
 
 It provides 2 XML helpers:
 
-1.  A filter to convert an XML string in to an Angular element.
+1.  A filter to convert an XML string in to an [Angular element][angular.element].
 
     ```js
     function MyCtrl(xmlFilter) {
@@ -15,7 +15,7 @@ It provides 2 XML helpers:
     }
     ```
     
-2.  A HTTP interceptor to turn all your responses in to an Angular XML element.
+2.  A HTTP interceptor to turn all your responses in to an [Angular XML element][angular.element].
 
     ```js
     angular
@@ -95,4 +95,5 @@ Compiling
 
 The source file `angular-xml.js` can be minifed and checked for problems using a grunt command. First make sure you have installed all npm dependencies `npm i`. Then run `grunt`.
 
+[angular.element]: http://docs.angularjs.org/api/angular.element
 
