@@ -10,7 +10,7 @@ command()
   fi
 }
 
-changed=`git diff --name-only | grep angular-xml.js`
+changed=`git diff --cached --name-only | grep angular-xml.js`
 
 if [ $changed ]
 then
