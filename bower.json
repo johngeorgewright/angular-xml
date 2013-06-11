@@ -6,6 +6,7 @@
     "**/*.swp",
     ".gitignore",
     "components",
+    "git-hooks",
     "Gruntfile.js",
     "node_modules",
     "package.json",
