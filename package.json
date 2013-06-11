@@ -16,7 +16,7 @@
     "karma": "karma start test/karma.js --no-auto-watch --single-run",
     "jshint": "grunt jshint",
     "compile": "grunt http",
-    "prepublish": "npm test; npm run-script compile"
+    "prepublish": "npm run-script compile"
   },
   "repository": {
     "type": "git",
