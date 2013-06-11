@@ -12,7 +12,11 @@
     "grunt-contrib-jshint": "~0.6.0"
   },
   "scripts": {
-    "test": "karma start test/karma.js"
+    "test": "npm run-script jshint; npm run-script karma",
+    "karma": "karma start test/karma.js --no-auto-watch --single-run",
+    "jshint": "grunt jshint",
+    "compile": "grunt http",
+    "prepublish": "npm test; npm run-script compile"
   },
   "repository": {
     "type": "git",
