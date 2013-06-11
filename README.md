@@ -97,3 +97,14 @@ The source file `angular-xml.js` can be minifed and checked for problems using a
 
 [angular.element]: http://docs.angularjs.org/api/angular.element
 
+Git Hooks
+---------
+
+There is a git hook available for shell environments that will automatically lint, test and compile the xml module when commiting it. To use it simply link it in to the git hook directory.
+
+```
+ln -s git-hooks/pre-commit.sh .git/hooks/pre-commit
+```
+
+Now when you change the `angular-xml.js` file and commit it, it will be linted, tested and if all is OK, then compiled and the minified version wil be added to your commit.
+
