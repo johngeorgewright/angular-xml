@@ -68,11 +68,14 @@ It provides 2 XML helpers:
 Installation
 ------------
 
-Either download the latest tag, or use bower:
+There are 3 optoins:
 
-```sh
-bower i --save angular-xml
-```
+1. Download the latest tag.
+2. Use bower:
+    ```sh
+    bower i --save angular-xml
+    ```
+3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/angular.xml/0.1.3/angular-xml.min.js`
 
 Tests
 -----
