@@ -1,3 +1,4 @@
+*.log
 *.swp
 bower_components
 components
