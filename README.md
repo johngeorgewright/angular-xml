@@ -3,19 +3,29 @@ angular-xml
 
 XML module for AngularJS.
 
-It provides 2 XML helpers:
+It provides 3 XML helpers:
 
-1.  A filter to convert an XML string in to an [Angular element][angular.element].
+1.  A parser to turn an XML string in to a DOM object.
+
+    ```js
+    function MyCtrl(xmlParser) {
+      var domElement = xmlParser.parse('<blogs><blog name="my first blog" id="1"/></blogs>');
+      console.log(domElement);
+      // => #document
+    }
+    ```
+
+2.  A filter to convert an XML string in to an [Angular element][angular.element].
 
     ```js
     function MyCtrl(xmlFilter) {
         var xml = xmlFilter('<blogs><blog name="my first blog" id="1"/></blogs>');
         console.log(xml.find('blog'));
-        // => [blog 1]
+        // => [blog#1]
     }
     ```
     
-2.  A HTTP interceptor to turn all your responses in to an [Angular XML element][angular.element].
+3.  A HTTP interceptor to turn all your responses in to an [Angular element][angular.element].
 
     ```js
     angular
