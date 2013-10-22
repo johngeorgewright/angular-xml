@@ -9,38 +9,17 @@ describe('xml', function () {
   describe('xmlFilter', function () {
 
     var filter,
-        ActiveXObject,
-        DOMParser,
-        win;
+        parser;
 
-    beforeEach(inject(function ($window, xmlFilter) {
-      filter                  = xmlFilter;
-      ActiveXObject           = jasmine.createSpy('ActiveXObject');
-      ActiveXObject.prototype = jasmine.createSpyObj('prototype', ['loadXml']);
-      DOMParser               = jasmine.createSpy('DOMParser');
-      DOMParser.prototype     = jasmine.createSpyObj('prototype', ['parseFromString']);
-      win                     = $window;
-      win.ActiveXObject       = ActiveXObject;
-      win.DOMParser           = DOMParser;
+    beforeEach(inject(function (xmlParser, xmlFilter) {
+      filter = xmlFilter;
+      parser = xmlParser;
     }));
 
-    it('will use the DOMParser class when it is available', function () {
+    it('will use the xmlParser.parse() method', function () {
+      spyOn(parser, 'parse');
       filter(xmlString);
-      expect(DOMParser).toHaveBeenCalled();
-      expect(DOMParser.prototype.parseFromString).toHaveBeenCalled();
-    });
-
-    it('will use the ActiveXObject class when DOMParser is not available', function () {
-      win.DOMParser = false;
-      filter(xmlString);
-      expect(ActiveXObject).toHaveBeenCalled();
-      expect(ActiveXObject.prototype.loadXml).toHaveBeenCalled();
-    });
-
-    it('will throw an error when niether the DOMParser or ActiveXObject classes are available', function () {
-      win.DOMParser = false;
-      win.ActiveXObject = false;
-      expect(filter).toThrow();
+      expect(parser.parse).toHaveBeenCalledWith(xmlString);
     });
 
     it('will return a ng.element object', function () {
@@ -49,6 +28,59 @@ describe('xml', function () {
       returnValue = filter(xmlString);
       expect(returnValue).toBe('ng.xml.element');
       angular.element.andCallThrough();
+    });
+
+    it('should integrate as expected', function () {
+      var xml = filter(xmlString);
+      expect(xml.find('test').length).toBe(1);
+    });
+
+  });
+
+  describe('XMLParser', function () {
+
+    var win;
+
+    beforeEach(inject(function ($window) {
+      win = $window;
+    }));
+
+    describe('DOMParser', function () {
+
+      var DOMParser;
+
+      beforeEach(function () {
+        DOMParser           = jasmine.createSpy('DOMParser');
+        DOMParser.prototype = jasmine.createSpyObj('prototype', ['parseFromString']);
+        win.DOMParser       = DOMParser;
+        win.ActiveXObject   = null;
+      });
+
+      it('will use the DOMParser class when it is available', inject(function (xmlParser) {
+        expect(DOMParser).toHaveBeenCalled();
+        xmlParser.parse(xmlString);
+        expect(DOMParser.prototype.parseFromString).toHaveBeenCalled();
+      }));
+
+    });
+
+    describe('ActiveXObject', function () {
+
+      var ActiveXObject;
+
+      beforeEach(function () {
+        ActiveXObject           = jasmine.createSpy('ActiveXObject');
+        ActiveXObject.prototype = jasmine.createSpyObj('prototype', ['loadXml']);
+        win.ActiveXObject       = ActiveXObject;
+        win.DOMParser           = null;
+      });
+
+      it('will use the ActiveXObject class when DOMParser is not available', inject(function (xmlParser) {
+        expect(ActiveXObject).toHaveBeenCalled();
+        xmlParser.parse(xmlString);
+        expect(ActiveXObject.prototype.loadXml).toHaveBeenCalled();
+      }));
+
     });
 
   });
