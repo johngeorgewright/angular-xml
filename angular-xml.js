@@ -15,25 +15,38 @@ if (typeof(angular) !== 'undefined') {
       }]);
       
     }])
-    .filter('xml', ['$window', function ($window) {
-      return function (input) {
-        
-        var xmlDoc, parser;
-        
-        if ($window.DOMParser) {
-          parser = new $window.DOMParser();
-          xmlDoc = parser.parseFromString(input, 'text/xml');
-        } else if ($window.ActiveXObject) {
-          // IE
-          xmlDoc = new $window.ActiveXObject('Microsoft.XMLDOM');
-          xmlDoc.async = false;
-          xmlDoc.loadXml(input);
-        } else {
-          throw new Error('Cannot parse XML in this environment.');
-        }
+    .factory('xmlParser', ['$window', function ($window) {
 
+      function MicrosoftXMLDOMParser() {
+        this.parser = new $window.ActiveXObject('Microsoft.XMLDOM');
+      }
+
+      MicrosoftXMLDOMParser.prototype.parse = function (input) {
+        this.parser.async = false;
+        return this.parser.loadXml(input);
+      };
+
+      function XMLDOMParser() {
+        this.parser = new $window.DOMParser();
+      }
+
+      XMLDOMParser.prototype.parse = function (input) {
+        return this.parser.parseFromString(input, 'text/xml');
+      };
+
+      if ($window.DOMParser) {
+        return new XMLDOMParser();
+      } else if ($window.ActiveXObject) {
+        return new MicrosoftXMLDOMParser();
+      } else {
+        throw new Error('Cannot parser XML in this environment.');
+      }
+
+    }])
+    .filter('xml', ['xmlParser', function (xmlParser) {
+      return function (input) {
+        var xmlDoc = xmlParser.parse(input);
         return angular.element(xmlDoc);
-        
       };
     }]);
 }
