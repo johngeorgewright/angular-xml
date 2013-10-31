@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="blogs">
+  <head>
+    <title>XML e2e testing</title>
+  </head>
+  <body ng-controller="BlogsCtrl">
+    <ul class="blogs">
+      <li ng-repeat="blog in blogs">{{blog.id}} - {{blog.name}}</li>
+    </ul>
+    <script src="/app/bower_components/angular/angular.js"></script>
+    <script src="/app/angular-xml.js"></script>
+    <script>
+      angular
+        .module('blogs', ['xml'])
+        .config(function ($httpProvider) {
+          $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
+        })
+        .controller('BlogsCtrl', function ($scope, $http) {
+          $http.get('xmlSpec.xml').then(function (response) {
+            var blogs = [],
+                els   = response.xml.find('blog'),
+                blog, i;
+
+            for (i = 0; i < els.length; i += 1) {
+              blog = angular.element(els[i]);
+              blogs.push({
+                name: blog.attr('name'),
+                id: blog.attr('id')
+              });
+            }
+
+            console.log(blogs);
+
+            $scope.blogs = blogs;
+          });
+        });
+      </script>
+  </body>
+</html>
+
