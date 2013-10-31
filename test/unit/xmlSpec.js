@@ -1,5 +1,3 @@
-/*global angular, describe, expect, it, beforeEach, module, inject, jasmine, spyOn*/
-
 describe('xml', function () {
 
   var xmlString = '<tests><test id="1"/></tests>';
@@ -85,37 +83,32 @@ describe('xml', function () {
 
   });
 
-  /* I'd be super stoked if anyone can get 
-   * this test working.
   describe('httpInterceptor', function () {
 
-    var interceptor,
-        deferred,
-        response,
-        promise;
+    var deferred,
+        promise,
+        response;
 
     beforeEach(inject(function ($q, xmlHttpInterceptor) {
-      deferred    = $q.defer();
       response    = {data: xmlString};
-      promise     = deferred.promise;
-      interceptor = xmlHttpInterceptor;
+      deferred    = $q.defer();
+      promise     = xmlHttpInterceptor(deferred.promise);
+      spyOn(angular, 'element').andReturn('ng.xml.element');
+    }));
+
+    afterEach(inject(function ($rootScope) {
+      deferred.resolve(response);
+      $rootScope.$apply();
+      angular.element.andCallThrough();
     }));
 
     it('will return a ng.element object', function () {
-      var done = false;
-      interceptor(promise).then(function (el) {
-        dump(el);
-        expect(el).not.toBeUndefined();
-        done = true;
-      });
-      deferred.resolve(response);
-      waitsFor(function () {
-        return done;
+      promise.then(function (response) {
+        expect(response.xml).toBe('ng.xml.element');
       });
     });
 
   });
-  */
 
 });
 
