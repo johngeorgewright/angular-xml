@@ -1,5 +1,3 @@
-/* global angular */
-
 if (typeof(angular) !== 'undefined') {
   angular
     .module('xml', [])
