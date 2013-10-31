@@ -3,9 +3,17 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    // Metadata.
-    pkg: grunt.file.readJSON('package.json'),
-    // Task configuration.
+    connect: {
+      options: {
+        keepalive: true
+      },
+      'test-server': {
+        options: {
+          port: 8000,
+          base: '.'
+        }
+      }
+    },
     jshint: {
       options: {
         curly: true,
@@ -64,6 +72,7 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-http');
 

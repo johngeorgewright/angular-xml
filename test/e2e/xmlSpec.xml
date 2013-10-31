@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<blogs>
+  <blog id="1" name="My first blog"/>
+  <blog id="2" name="My second blog"/>
+</blogs>
+
