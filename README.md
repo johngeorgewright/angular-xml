@@ -31,12 +31,13 @@ It provides 3 XML helpers:
     angular
         .module('blogs', ['xml'])
         .config(function ($httpProvider) {
-            $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
+            $httpProvider.interceptors.push('xmlHttpInterceptor');
         });
         
     function BlogsCtrl ($scope, $http) {
         $scope.blogs = [];
         
+        // We must use .then() and not .success()
         $http.get('blogs.xml').then(function (response) {
             var blogs = [],
                 els = response.xml.find('blog'),
