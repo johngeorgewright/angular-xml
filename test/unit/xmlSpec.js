@@ -85,27 +85,13 @@ describe('xml', function () {
 
   describe('httpInterceptor', function () {
 
-    var deferred,
-        promise,
-        response;
-
-    beforeEach(inject(function ($q, xmlHttpInterceptor) {
-      response    = {data: xmlString};
-      deferred    = $q.defer();
-      promise     = xmlHttpInterceptor(deferred.promise);
-      spyOn(angular, 'element').andReturn('ng.xml.element');
-    }));
-
-    afterEach(inject(function ($rootScope) {
-      deferred.resolve(response);
-      $rootScope.$apply();
-      angular.element.andCallThrough();
+    beforeEach(inject(function (xmlHttpInterceptor) {
+      spyOn(angular, 'element').andCallThrough();
+      xmlHttpInterceptor.response({data: xmlString});
     }));
 
     it('will return a ng.element object', function () {
-      promise.then(function (response) {
-        expect(response.xml).toBe('ng.xml.element');
-      });
+      expect(angular.element).toHaveBeenCalled();
     });
 
   });

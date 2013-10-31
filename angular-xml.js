@@ -3,12 +3,16 @@ if (typeof(angular) !== 'undefined') {
     .module('xml', [])
     .config(['$provide', function ($provide) {
       
-      $provide.factory('xmlHttpInterceptor', ['xmlFilter', function (xmlFilter) {
-        return function (promise) {
-          return promise.then(function (response) {
-            response.xml = xmlFilter(response.data);
-            return response;
-          });
+      $provide.factory('xmlHttpInterceptor', ['$q', 'xmlFilter', function ($q, xmlFilter) {
+        return {
+          response: function (response) {
+            if (response) {
+              response.xml = xmlFilter(response.data);
+              return response;
+            } else {
+              return $q.when(response);
+            }
+          }
         };
       }]);
       
