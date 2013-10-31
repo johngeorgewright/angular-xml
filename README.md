@@ -3,7 +3,7 @@ angular-xml
 
 XML module for AngularJS.
 
-**As of version 1.0.0 this module no longer supports angular < 1.2.0. For angular <= 1.0.8 see version 0.2.0.**
+**As of version 1.0.0 this module no longer supports angular >= 1.2.0. For angular <= 1.0.8 see version 0.2.0.**
 
 It provides 3 XML helpers:
 
