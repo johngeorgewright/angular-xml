@@ -18,7 +18,10 @@ module.exports = function(grunt) {
         undef: true,
         unused: true,
         boss: true,
-        eqnull: true
+        eqnull: true,
+        globals: {
+          angular: false
+        }
       },
       gruntfile: {
         src: 'Gruntfile.js'
@@ -27,6 +30,20 @@ module.exports = function(grunt) {
         src: 'angular-xml.js'
       },
       test: {
+        options: {
+          globals: {
+            angular: false,
+            describe: false,
+            expect: false,
+            it: false,
+            afterEach: false,
+            beforeEach: false,
+            module: false,
+            inject: false,
+            jasmine: false,
+            spyOn: false
+          }
+        },
         src: 'test/**/*.js'
       }
     },
