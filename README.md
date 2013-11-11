@@ -84,11 +84,8 @@ Installation
 There are 3 optoins:
 
 1. Download the latest tag.
-2. Use bower:
-    ```sh
-    bower i --save angular-xml
-    ```
-3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/angular.xml/0.1.3/angular-xml.min.js`
+2. Use bower: `bower i --save angular-xml`
+3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/angular.xml/1.0.0/angular-xml.min.js`
 
 Tests
 -----
