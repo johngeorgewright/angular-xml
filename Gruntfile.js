@@ -5,12 +5,36 @@ module.exports = function(grunt) {
   grunt.initConfig({
     connect: {
       options: {
-        keepalive: true
+        keepalive: true,
+        port: 8000,
+        hostname: '0.0.0.0',
+        base: '.'
+      },
+      'dev-server': {
+        options: {
+          keepalive: true,
+          middleware: function (connect, options) {
+            return [
+              connect.static(options.base),
+              connect.directory(options.base),
+              connect.logger('dev')
+            ];
+          }
+        }
       },
       'test-server': {
         options: {
-          port: 8000,
-          base: '.'
+          middleware: function (connect, options) {
+            return [
+              function (req, res, next) {
+                if (req.method === 'GET') {
+                  res.setHeader('Cache-control', 'public, max-age=3600');
+                }
+                next();
+              },
+              connect.static(options.base)
+            ];
+          }
         }
       }
     },
@@ -78,6 +102,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'http']);
+  grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:test-server']);
 
 };
 

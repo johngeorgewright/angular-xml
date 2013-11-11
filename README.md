@@ -64,7 +64,7 @@ It provides 3 XML helpers:
     <html lang="en" ng-app="blogs">
         <head>
             <title>Blogs</title>
-            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
             <script src="angular-xml.min.js"></script>
             <script src="blogs.js"></script>
         </head>
@@ -103,7 +103,7 @@ The tests run with karma.
 ### Run the test suite
 
 ```
-grunt connect:test-server
+grunt connect:dev-server
 ```
 
 ```
