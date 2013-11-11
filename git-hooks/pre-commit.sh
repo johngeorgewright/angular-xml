@@ -14,9 +14,8 @@ changed=`git diff --cached --name-only | grep angular-xml.js`
 
 if [ $changed ]
 then
-  command npm run-script jshint
-  command npm run-script karma
-  command npm run-script compile
+  command npm test
+  command npm run compile
   git add angular-xml.min.js
 fi
 

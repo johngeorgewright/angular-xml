@@ -13,7 +13,7 @@
       angular
         .module('blogs', ['xml'])
         .config(function ($httpProvider) {
-          $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
+          $httpProvider.interceptors.push('xmlHttpInterceptor');
         })
         .controller('BlogsCtrl', function ($scope, $http) {
           $http.get('xmlSpec.xml').then(function (response) {
@@ -28,8 +28,6 @@
                 id: blog.attr('id')
               });
             }
-
-            console.log(blogs);
 
             $scope.blogs = blogs;
           });

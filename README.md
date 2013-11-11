@@ -3,6 +3,8 @@ angular-xml
 
 XML module for AngularJS.
 
+**As of version 1.0.0 this module no longer supports angular < 1.2.0. For angular <= 1.0.8 see version 0.2.0.**
+
 It provides 3 XML helpers:
 
 1.  A parser to turn an XML string in to a DOM object.
@@ -31,12 +33,13 @@ It provides 3 XML helpers:
     angular
         .module('blogs', ['xml'])
         .config(function ($httpProvider) {
-            $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
+            $httpProvider.interceptors.push('xmlHttpInterceptor');
         });
         
     function BlogsCtrl ($scope, $http) {
         $scope.blogs = [];
         
+        // We must use .then() and not .success()
         $http.get('blogs.xml').then(function (response) {
             var blogs = [],
                 els = response.xml.find('blog'),
@@ -61,7 +64,7 @@ It provides 3 XML helpers:
     <html lang="en" ng-app="blogs">
         <head>
             <title>Blogs</title>
-            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
             <script src="angular-xml.min.js"></script>
             <script src="blogs.js"></script>
         </head>
@@ -100,7 +103,7 @@ The tests run with karma.
 ### Run the test suite
 
 ```
-grunt connect:test-server
+grunt connect:dev-server
 ```
 
 ```
