@@ -31,18 +31,19 @@ module.exports = function(config){
 
     logLevel: config.LOG_INFO,
 
-    browsers : ['Chrome'],
+    browsers: ['Chrome'],
 
-    singleRun : false,
+    singleRun: false,
 
-    plugins : [
+    plugins: [
       'karma-chrome-launcher',
       'karma-firefox-launcher',
+      'karma-phantomjs-launcher',
       'karma-jasmine',
       'karma-ng-scenario'
     ],
 
-    autoWatch : true,
+    autoWatch: true,
   });
 };
 

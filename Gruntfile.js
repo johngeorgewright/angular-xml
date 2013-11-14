@@ -3,9 +3,9 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     connect: {
       options: {
-        keepalive: true,
         port: 8000,
         hostname: '0.0.0.0',
         base: '.'
@@ -15,9 +15,9 @@ module.exports = function(grunt) {
           keepalive: true,
           middleware: function (connect, options) {
             return [
+              connect.logger('dev'),
               connect.static(options.base),
-              connect.directory(options.base),
-              connect.logger('dev')
+              connect.directory(options.base)
             ];
           }
         }
@@ -92,17 +92,31 @@ module.exports = function(grunt) {
         },
         dest: 'angular-xml.min.js'
       }
+    },
+    shell: {
+      options: {
+        stdout: true,
+        stderr: true,
+        failOnError: true
+      },
+      'karma-unit': {
+        command: "<%= pkg.scripts.unit %>"
+      },
+      'karma-e2e': {
+        command: "<%= pkg.scripts.e2e %>"
+      }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-http');
 
-  // Default task.
-  grunt.registerTask('default', ['jshint', 'http']);
-  grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:test-server']);
+  grunt.registerTask('test:unit', 'Run the unit tests with Karma', ['shell:karma-unit']);
+  grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:test-server', 'shell:karma-e2e']);
+  grunt.registerTask('default', ['jshint', 'test:unit', 'test:e2e', 'http']);
 
 };
 
