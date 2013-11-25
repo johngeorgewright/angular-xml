@@ -21,13 +21,15 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.4",
     "grunt-contrib-connect": "~0.5.0",
-    "grunt-shell": "~0.5.0"
+    "grunt-shell": "~0.5.0",
+    "karma-sauce-launcher": "~0.1.1"
   },
   "scripts": {
-    "test": "npm run jshint && npm run unit && npm run e2e",
+    "test": "grunt test",
     "unit": "karma start test/karma-unit.js --no-auto-watch --single-run --browsers PhantomJS",
-    "e2e": "karma start test/karma-e2e.js --no-auto-watch --single-run --browsers PhantomJS",
+    "e2e": "karma start test/karma-e2e.js --no-auto-watch --single-run",
     "karma": "karma start test/karma-unit.js & karma start test/karma-e2e.js",
+    "dev-server": "grunt connect:dev-server",
     "jshint": "grunt jshint",
     "compile": "grunt http",
     "prepublish": "npm test && npm run compile"

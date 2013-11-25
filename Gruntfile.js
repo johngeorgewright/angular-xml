@@ -116,7 +116,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test:unit', 'Run the unit tests with Karma', ['shell:karma-unit']);
   grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:test-server', 'shell:karma-e2e']);
-  grunt.registerTask('default', ['jshint', 'test:unit', 'test:e2e', 'http']);
+  grunt.registerTask('test', 'Run all the tests', ['jshint', 'test:unit', 'test:e2e']);
+  grunt.registerTask('default', ['test', 'http']);
 
 };
 

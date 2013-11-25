@@ -3,6 +3,23 @@
 module.exports = function(config){
   config.set({
 
+    // global config for SauceLabs
+    sauceLabs: {
+      username: 'johngeorgewright',
+      accessKey: '755cb43c-80bc-45cb-b84f-f8d9c48fd5e2',
+      startConnect: false,
+      testName: 'E2E tests'
+    },
+
+    // define SL browsers
+    customLaunchers: {
+      sl_chrome_linux: {
+        base: 'SauceLabs',
+        browserName: 'chrome',
+        platform: 'linux'
+      }
+    },
+
     basePath : '..',
 
     frameworks: ['ng-scenario'],
@@ -32,6 +49,7 @@ module.exports = function(config){
     logLevel: config.LOG_INFO,
 
     browsers: ['Chrome'],
+    /* browsers: ['sl_chrome_linux'], */
 
     singleRun: false,
 
@@ -40,7 +58,8 @@ module.exports = function(config){
       'karma-firefox-launcher',
       'karma-phantomjs-launcher',
       'karma-jasmine',
-      'karma-ng-scenario'
+      'karma-ng-scenario',
+      'karma-sauce-launcher'
     ],
 
     autoWatch: true,
