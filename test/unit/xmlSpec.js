@@ -68,7 +68,7 @@ describe('xml', function () {
 
       beforeEach(function () {
         ActiveXObject           = jasmine.createSpy('ActiveXObject');
-        ActiveXObject.prototype = jasmine.createSpyObj('prototype', ['loadXml']);
+        ActiveXObject.prototype = jasmine.createSpyObj('prototype', ['loadXML']);
         win.ActiveXObject       = ActiveXObject;
         win.DOMParser           = null;
       });
@@ -76,7 +76,7 @@ describe('xml', function () {
       it('will use the ActiveXObject class when DOMParser is not available', inject(function (xmlParser) {
         expect(ActiveXObject).toHaveBeenCalled();
         xmlParser.parse(xmlString);
-        expect(ActiveXObject.prototype.loadXml).toHaveBeenCalled();
+        expect(ActiveXObject.prototype.loadXML).toHaveBeenCalled();
       }));
 
     });
