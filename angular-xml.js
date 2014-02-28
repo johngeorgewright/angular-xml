@@ -25,7 +25,14 @@ if (typeof(angular) !== 'undefined') {
 
       MicrosoftXMLDOMParser.prototype.parse = function (input) {
         this.parser.async = false;
-        return this.parser.loadXML(input);
+        if (this.parser.loadXML(input))
+        {
+        	return this.parser;
+        }
+        else
+        {
+        	throw new Error('Cannot parse XML.');
+        }
       };
 
       function XMLDOMParser() {
