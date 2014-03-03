@@ -1,13 +1,24 @@
 describe('xml', function () {
 
-  var xmlString = '<tests><test id="1"/></tests>';
+  var xmlString = '<tests><test id="1"/></tests>',
+      DOMParser, ActiveXObject, win;
 
   beforeEach(module('xml'));
 
+  beforeEach(inject(function ($window) {
+    win = $window;
+    DOMParser = win.DOMParser;
+    ActiveXObject = win.ActiveXObject;
+  }));
+
+  afterEach(function () {
+    win.DOMParser = DOMParser;
+    win.ActiveXObject = ActiveXObject;
+  });
+
   describe('xmlFilter', function () {
 
-    var filter,
-        parser;
+    var filter, parser;
 
     beforeEach(inject(function (xmlParser, xmlFilter) {
       filter = xmlFilter;
@@ -37,21 +48,15 @@ describe('xml', function () {
 
   describe('XMLParser', function () {
 
-    var win;
-
-    beforeEach(inject(function ($window) {
-      win = $window;
-    }));
-
     describe('DOMParser', function () {
 
       var DOMParser;
 
       beforeEach(function () {
-        DOMParser           = jasmine.createSpy('DOMParser');
+        DOMParser = jasmine.createSpy('DOMParser');
         DOMParser.prototype = jasmine.createSpyObj('prototype', ['parseFromString']);
-        win.DOMParser       = DOMParser;
-        win.ActiveXObject   = null;
+        win.DOMParser = DOMParser;
+        win.ActiveXObject = null;
       });
 
       it('will use the DOMParser class when it is available', inject(function (xmlParser) {
@@ -67,17 +72,39 @@ describe('xml', function () {
       var ActiveXObject;
 
       beforeEach(function () {
-        ActiveXObject           = jasmine.createSpy('ActiveXObject');
+        ActiveXObject = jasmine.createSpy('ActiveXObject');
         ActiveXObject.prototype = jasmine.createSpyObj('prototype', ['loadXML']);
-        win.ActiveXObject       = ActiveXObject;
-        win.DOMParser           = null;
+        win.ActiveXObject = ActiveXObject;
+        win.DOMParser = null;
       });
 
-      it('will use the ActiveXObject class when DOMParser is not available', inject(function (xmlParser) {
-        expect(ActiveXObject).toHaveBeenCalled();
-        xmlParser.parse(xmlString);
-        expect(ActiveXObject.prototype.loadXML).toHaveBeenCalled();
-      }));
+      describe('successful parsing', function () {
+
+        beforeEach(function () {
+          ActiveXObject.prototype.parseError = {errorCode: 0};
+        });
+
+        it('will use the ActiveXObject class when DOMParser is not available', inject(function (xmlParser) {
+          expect(ActiveXObject).toHaveBeenCalled();
+          xmlParser.parse(xmlString);
+          expect(ActiveXObject.prototype.loadXML).toHaveBeenCalled();
+        }));
+
+      });
+
+      describe('unsuccessful parsing', function () {
+
+        beforeEach(function () {
+          ActiveXObject.prototype.parseError = {errorCode: 1, reason: 'mung'};
+        });
+
+        it('will throw an error when there is a badly formed XML string', inject(function (xmlParser) {
+          expect(function () {
+            xmlParser.parse(xmlString);
+          }).toThrow();
+        }));
+
+      });
 
     });
 
