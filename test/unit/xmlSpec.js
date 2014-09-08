@@ -112,13 +112,37 @@ describe('xml', function () {
 
   describe('httpInterceptor', function () {
 
+    var responseHeaders = jasmine.createSpy().andReturn('application/xml'),
+        $xmlHttpInterceptor;
+
     beforeEach(inject(function (xmlHttpInterceptor) {
+      $xmlHttpInterceptor = xmlHttpInterceptor;
       spyOn(angular, 'element').andCallThrough();
-      xmlHttpInterceptor.response({data: xmlString});
     }));
 
+    it('will check for the content-type', function () {
+      $xmlHttpInterceptor.response({
+        data: xmlString,
+        headers: responseHeaders
+      });
+      expect(responseHeaders).toHaveBeenCalledWith('content-type');
+    });
+
     it('will return a ng.element object', function () {
+      $xmlHttpInterceptor.response({
+        data: xmlString,
+        headers: responseHeaders
+      });
       expect(angular.element).toHaveBeenCalled();
+    });
+
+    it('will only act on a XML response', function () {
+      responseHeaders.andReturn('text/html');
+      $xmlHttpInterceptor.response({
+        data: xmlString,
+        headers: responseHeaders
+      });
+      expect(angular.element).not.toHaveBeenCalled();
     });
 
   });
