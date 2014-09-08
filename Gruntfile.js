@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     connect: {
       options: {
-        keepalive: true,
+        keepalive: false,
         port: 8000,
         hostname: '0.0.0.0',
         base: '.'
@@ -92,17 +92,49 @@ module.exports = function(grunt) {
         },
         dest: 'angular-xml.min.js'
       }
+    },
+    protractor: {
+      options: {
+        configFile: 'test/e2e.conf.js',
+        keepAlive: false,
+        noColor: false,
+        args: {
+          chromeDriver: 'node_modules/grunt-protractor-runner/node_modules/protractor/selenium/chromedriver'
+        }
+      },
+      'stand-alone': {},
+      watch: {
+        options: {
+          keepAlive: true
+        }
+      },
+      attach: {
+        options: {
+          args: {
+            seleniumAddress: 'http://127.0.0.1:4444/wd/hub'
+          }
+        }
+      }
+    },
+    watch: {
+      protractor: {
+        files: ['angular-xml.js', 'test/e2e/**/*Spec.js', 'test/e2e/**/*Spec.html'],
+        tasks: ['protractor:watch']
+      }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'http']);
-  grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:test-server']);
+  grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:test-server', 'protractor:stand-alone']);
+  grunt.registerTask('dev', ['connect:test-server', 'watch']);
 
 };
 

@@ -3,11 +3,11 @@
 describe('xml', function () {
 
   beforeEach(function () {
-    browser().navigateTo('/app/test/e2e/xmlSpec.html');
+    browser.get('/test/e2e/xmlSpec.html');
   });
 
   it('will render 2 blogs', function () {
-    expect(repeater('.blogs li').count()).toBe(2);
+    expect(element.all(by.repeater('blog in blogs')).count()).toBe(2);
   });
 
 });

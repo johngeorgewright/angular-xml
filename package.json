@@ -8,28 +8,26 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-http": "~0.0.2",
+    "grunt-contrib-connect": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.0",
-    "karma-ng-scenario": "~0.1.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-http": "~0.0.2",
+    "grunt-protractor-runner": "^1.1.4",
+    "karma": "~0.10.4",
     "karma-chrome-launcher": "~0.1.0",
     "karma-firefox-launcher": "~0.1.0",
-    "karma-script-launcher": "~0.1.0",
-    "karma-html2js-preprocessor": "~0.1.0",
     "karma-jasmine": "~0.1.3",
-    "karma-requirejs": "~0.1.0",
-    "karma-coffee-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.0",
-    "karma": "~0.10.4",
-    "grunt-contrib-connect": "~0.5.0"
+    "karma-script-launcher": "~0.1.0"
   },
   "scripts": {
     "test": "npm run jshint && npm run unit && npm run e2e",
-    "unit": "karma start test/karma-unit.js --no-auto-watch --single-run",
-    "e2e": "karma start test/karma-e2e.js --no-auto-watch --single-run",
-    "karma": "karma start test/karma-unit.js & karma start test/karma-e2e.js",
+    "unit": "karma start test/unit.conf.js --no-auto-watch --single-run",
+    "e2e": "grunt test:e2e",
     "jshint": "grunt jshint",
     "compile": "grunt http",
-    "prepublish": "npm test && npm run compile"
+    "prepublish": "npm test && npm run compile",
+    "postinstall": "node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update"
   },
   "repository": {
     "type": "git",
