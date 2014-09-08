@@ -7,8 +7,8 @@
     <ul class="blogs">
       <li ng-repeat="blog in blogs">{{blog.id}} - {{blog.name}}</li>
     </ul>
-    <script src="/app/bower_components/angular/angular.js"></script>
-    <script src="/app/angular-xml.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/angular-xml.js"></script>
     <script>
       angular
         .module('blogs', ['xml'])
@@ -32,7 +32,7 @@
             $scope.blogs = blogs;
           });
         });
-      </script>
+    </script>
   </body>
 </html>
 
