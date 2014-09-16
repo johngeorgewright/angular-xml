@@ -81,14 +81,16 @@ module.exports = function(grunt) {
     },
     http: {
       closure: {
-        url: 'http://closure-compiler.appspot.com/compile',
-        method: 'POST',
-        form: {
-          output_info: 'compiled_code',
-          output_format: 'text',
-          compilation_level: 'SIMPLE_OPTIMIZATIONS',
-          warning_level: 'default',
-          js_code: grunt.file.read('angular-xml.js')
+        options: {
+          url: 'http://closure-compiler.appspot.com/compile',
+          method: 'POST',
+          form: {
+            output_info: 'compiled_code',
+            output_format: 'text',
+            compilation_level: 'SIMPLE_OPTIMIZATIONS',
+            warning_level: 'default',
+            js_code: grunt.file.read('angular-xml.js')
+          }
         },
         dest: 'angular-xml.min.js'
       }
