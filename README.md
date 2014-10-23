@@ -100,17 +100,13 @@ The tests run with karma.
 ### Run the test suite
 
 ```
-grunt connect:dev-server
-```
-
-```
 npm test
 ```
 
 Or, to watch your files and test automatically:
 
 ```
-npm run karma
+npm run dev
 ```
 
 Compiling
@@ -129,5 +125,5 @@ There is a git hook available for shell environments that will automatically lin
 cd .git/hooks && ln -s ../../pre-commit.sh pre-commit
 ```
 
-Now when you change the `angular-xml.js` file and commit it, it will be linted, tested and if all is OK, then compiled and the minified version wil be added to your commit. Make sure you have a server up (`grunt connect:test-server`) before comitting.
+Now when you change the `angular-xml.js` file and commit it, it will be linted, tested and if all is OK, then compiled and the minified version wil be added to your commit.
 
