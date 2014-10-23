@@ -1,4 +1,4 @@
-/*global module:false*/
+/*global module:false, __dirname:false*/
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -8,32 +8,26 @@ module.exports = function(grunt) {
         keepalive: false,
         port: 8000,
         hostname: '0.0.0.0',
-        base: '.'
+        base: __dirname
       },
       'dev-server': {
         options: {
           keepalive: true,
-          middleware: function (connect, options) {
-            return [
-              connect.static(options.base),
-              connect.directory(options.base),
-              connect.logger('dev')
-            ];
+          middleware: function (connect, options, middleware) {
+            middleware.push(connect.logger('dev'));
           }
         }
       },
       'test-server': {
         options: {
-          middleware: function (connect, options) {
-            return [
-              function (req, res, next) {
-                if (req.method === 'GET') {
-                  res.setHeader('Cache-control', 'public, max-age=3600');
-                }
-                next();
-              },
-              connect.static(options.base)
-            ];
+          middleware: function (connect, options, middleware) {
+            middleware.unshift(function (req, res, next) {
+              if (req.method === 'GET') {
+                res.setHeader('Cache-control', 'public, max-age=3600');
+              }
+              next();
+            });
+            return middleware;
           }
         }
       }
@@ -73,7 +67,10 @@ module.exports = function(grunt) {
             module: false,
             inject: false,
             jasmine: false,
-            spyOn: false
+            spyOn: false,
+            browser: false,
+            element: false,
+            by: false
           }
         },
         src: 'test/**/*.js'
