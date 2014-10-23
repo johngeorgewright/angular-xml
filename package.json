@@ -1,6 +1,6 @@
 {
   "name": "angular-xml",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "XML module for AngularJS.",
   "main": "angular-xml.js",
   "directories": {
