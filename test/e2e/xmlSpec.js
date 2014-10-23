@@ -1,5 +1,3 @@
-/* global browser: false, repeater: false */
-
 describe('xml', function () {
 
   beforeEach(function () {

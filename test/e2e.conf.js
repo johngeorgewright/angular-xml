@@ -1,3 +1,5 @@
+/* global exports */
+
 // An example configuration file.
 exports.config = {
   // Do not start a Selenium Standalone sever - only run this using chrome.

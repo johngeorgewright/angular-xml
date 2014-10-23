@@ -37,7 +37,8 @@
 
   function xmlHttpInterceptorFactory($q, xmlFilter) {
     function responseHandler(response) {
-      if (response && response.headers('content-type') === 'application/xml') {
+      var contentType = response.headers('content-type');
+      if (response && contentType === 'application/xml' || contentType === 'text/xml') {
         response.xml = xmlFilter(response.data);
         return response;
       } else {

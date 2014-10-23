@@ -147,6 +147,12 @@ describe('xml', function () {
         expect(xmlFilter).toHaveBeenCalled();
       });
 
+      it('will also work with the text/xml content-type', function () {
+        responseHeaders.andReturn('text/xml');
+        respond();
+        expect(xmlFilter).toHaveBeenCalled();
+      });
+
       it('will only act on a XML response', function () {
         responseHeaders.andReturn('text/html');
         respond();
