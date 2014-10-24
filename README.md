@@ -87,17 +87,22 @@ There are 3 optoins:
 2. Use bower: `bower i --save angular-xml`
 3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/angular.xml/1.0.4/angular-xml.min.js`
 
-Tests
------
+Contributing
+------------
 
-The tests run with karma.
+To contribute to the project take the following stpes:
 
-### Installing karma
+1. [Fork](https://github.com/johngeorgewright/angular-xml/fork) the project.
+2. Create a [branch](http://git-scm.com/docs/git-branch) specific for your change(s).
+3. Submit a [pull request](https://help.github.com/articles/using-pull-requests/) to my master branch and we can begin the process of merging.
 
-1. Install Node.js
-2. `npm i -g karma`
+*When submitting, please make sure your code is covered by tests.*
 
-### Run the test suite
+### Tests
+
+The unit tests run with [Karma](http://karma-runner.github.io/0.12/index.html) and the E2E tests run with [Protractor](https://github.com/angular/protractor).
+
+#### Run the test suite
 
 ```
 npm test
@@ -109,15 +114,13 @@ Or, to watch your files and test automatically:
 npm run dev
 ```
 
-Compiling
----------
+### Compiling
 
 The source file `angular-xml.js` can be minifed and checked for problems using a grunt command. First make sure you have installed all npm dependencies `npm i`. Then run `grunt`.
 
 [angular.element]: http://docs.angularjs.org/api/angular.element
 
-Git Hooks
----------
+### Git Hooks
 
 There is a git hook available for shell environments that will automatically lint, test and compile the xml module when commiting it. To use it simply link it in to the git hook directory.
 
