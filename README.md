@@ -90,7 +90,7 @@ There are 3 optoins:
 Contributing
 ------------
 
-To contribute to the project take the following stpes:
+To contribute to the project take the following steps:
 
 1. [Fork](https://github.com/johngeorgewright/angular-xml/fork) the project.
 2. Create a [branch](http://git-scm.com/docs/git-branch) specific for your change(s).
