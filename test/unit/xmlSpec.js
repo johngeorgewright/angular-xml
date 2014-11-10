@@ -153,6 +153,12 @@ describe('xml', function () {
         expect(xmlFilter).toHaveBeenCalled();
       });
 
+      it('will also work when then content-type has extra parameters', function () {
+        responseHeaders.andReturn('application/xml, charset=UTF-8');
+        respond();
+        expect(xmlFilter).toHaveBeenCalled();
+      });
+
       it('will only act on a XML response', function () {
         responseHeaders.andReturn('text/html');
         respond();
