@@ -27,7 +27,6 @@
     "e2e": "grunt test:e2e",
     "jshint": "grunt jshint",
     "compile": "grunt http",
-    "prepublish": "npm test && npm run compile",
     "update-webdriver-manager": "node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update"
   },
   "repository": {
