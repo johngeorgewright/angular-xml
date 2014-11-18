@@ -101,6 +101,12 @@ To contribute to the project take the following steps:
 
 The unit tests run with [Karma](http://karma-runner.github.io/0.12/index.html) and the E2E tests run with [Protractor](https://github.com/angular/protractor).
 
+#### Update the webdriver
+
+```
+npm run update-webdriver-manager
+```
+
 #### Run the test suite
 
 ```
