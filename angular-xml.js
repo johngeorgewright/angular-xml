@@ -39,7 +39,11 @@
     var contentType = response.headers('content-type'),
         XML = '/xml',
         minIndex = 'text/xml'.indexOf(XML);
-    return contentType.indexOf(XML) >= minIndex;
+    if (contentType) {
+      return contentType.indexOf(XML) >= minIndex;
+    } else {
+      return false;
+    }
   }
 
   function xmlHttpInterceptorFactory($q, xmlFilter) {
