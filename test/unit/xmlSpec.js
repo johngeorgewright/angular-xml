@@ -160,6 +160,12 @@ describe('xml', function () {
       expect(xmlFilter).not.toHaveBeenCalled();
     });
 
+    it('will only act on a response with a content-type', function () {
+      responseHeaders.andReturn(null);
+      respond();
+      expect(xmlFilter).not.toHaveBeenCalled();
+    });
+
   });
 
 });
