@@ -1,39 +1,8 @@
+if (!X2JS) {
+  throw new Error("You're required to include the X2JS library to use the xml module.");
+}
+
 (function(ng) {
-
-  function MicrosoftXMLDOMParser($window) {
-    this.parser = new $window.ActiveXObject('Microsoft.XMLDOM');
-  }
-
-  MicrosoftXMLDOMParser.prototype.parse = function (input) {
-    var parser = this.parser,
-        parseError;
-    parser.async = false;
-    parser.loadXML(input);
-    parseError = parser.parseError;
-    if (parseError.errorCode === 0) {
-      return parser;
-    } else {
-      throw new Error('Cannot parse XML: ' + parseError.reason);
-    }
-  };
-
-  function XMLDOMParser($window) {
-    this.parser = new $window.DOMParser();
-  }
-
-  XMLDOMParser.prototype.parse = function (input) {
-    return this.parser.parseFromString(input, 'text/xml');
-  };
-
-  function parserFactory($window) {
-    if ($window.DOMParser) {
-      return new XMLDOMParser($window);
-    } else if ($window.ActiveXObject) {
-      return new MicrosoftXMLDOMParser($window);
-    } else {
-      throw new Error('Cannot parser XML in this environment.');
-    }
-  }
 
   function responseIsXml(response) {
     var contentType = response.headers('content-type'),
@@ -46,10 +15,10 @@
     }
   }
 
-  function xmlHttpInterceptorFactory($q, xmlFilter) {
+  function xmlHttpInterceptorFactory($q, x2js) {
     function responseHandler(response) {
       if (response && responseIsXml(response)) {
-        response.xml = xmlFilter(response.data);
+        response.xml = x2js.xml_str2json(response.data);
         return response;
       } else {
         return $q.when(response);
@@ -61,22 +30,18 @@
   }
 
   function configProvider($provide) {
-    $provide.factory('xmlHttpInterceptor', ['$q', 'xmlFilter', xmlHttpInterceptorFactory]);
+    $provide.factory('xmlHttpInterceptor', ['$q', 'x2js', xmlHttpInterceptorFactory]);
   }
 
-  function filterFactory(xmlParser) {
-    return function (input) {
-      var xmlDoc = xmlParser.parse(input);
-      return ng.element(xmlDoc);
-    };
+  function x2jsFactory() {
+    return new X2JS();
   }
 
   if (ng) {
     ng
       .module('xml', [])
       .config(['$provide', configProvider])
-      .factory('xmlParser', ['$window', parserFactory])
-      .filter('xml', ['xmlParser', filterFactory]);
+      .factory('x2js', x2jsFactory);
   }
 
 }(angular));

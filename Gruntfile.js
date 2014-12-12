@@ -14,7 +14,8 @@ module.exports = function(grunt) {
         options: {
           keepalive: true,
           middleware: function (connect, options, middleware) {
-            middleware.push(connect.logger('dev'));
+            middleware.unshift(connect.logger('dev'));
+            return middleware;
           }
         }
       },
@@ -46,7 +47,8 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         globals: {
-          angular: false
+          angular: false,
+          X2JS: false
         }
       },
       gruntfile: {
@@ -70,7 +72,8 @@ module.exports = function(grunt) {
             spyOn: false,
             browser: false,
             element: false,
-            by: false
+            by: false,
+            X2JS: true
           }
         },
         src: 'test/**/*.js'

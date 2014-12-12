@@ -1,4 +1,4 @@
-describe('xml', function () {
+describe('x2js', function () {
 
   beforeEach(function () {
     browser.get('/test/e2e/xmlSpec.html');
