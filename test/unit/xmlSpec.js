@@ -12,6 +12,24 @@ describe('xml', function () {
 
   });
 
+  describe('x2jsProvider', function () {
+
+    var X2JS, config;
+
+    beforeEach(module(function ($provide, x2jsProvider) {
+      X2JS = jasmine.createSpy('X2JS');
+      config = {mung: 'face'};
+      x2jsProvider.config = config;
+      $provide.value('X2JS', X2JS);
+    }));
+
+    it('will pass any configurations to the X2JS constructor', inject(function (x2js) {
+      expect(x2js).not.toBeUndefined();
+      expect(X2JS).toHaveBeenCalledWith(config);
+    }));
+
+  });
+
   describe('httpInterceptor', function () {
 
     var responseHeaders, x2js, $xmlHttpInterceptor;

@@ -2,7 +2,7 @@ if (!X2JS) {
   throw new Error("You're required to include the X2JS library to use the xml module.");
 }
 
-(function(ng) {
+(function(ng, X2JS) {
 
   function responseIsXml(response) {
     var contentType = response.headers('content-type'),
@@ -33,16 +33,20 @@ if (!X2JS) {
     $provide.factory('xmlHttpInterceptor', ['$q', 'x2js', xmlHttpInterceptorFactory]);
   }
 
-  function x2jsFactory() {
-    return new X2JS();
+  function X2JSProvider() {
+    this.config = {};
+    this.$get = ['X2JS', function (X2JS) {
+      return new X2JS(this.config);
+    }];
   }
 
   if (ng) {
     ng
       .module('xml', [])
       .config(['$provide', configProvider])
-      .factory('x2js', x2jsFactory);
+      .provider('x2js', X2JSProvider)
+      .value('X2JS', X2JS);
   }
 
-}(angular));
+}(angular, X2JS));
 
