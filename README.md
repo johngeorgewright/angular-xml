@@ -109,7 +109,9 @@ angular
 Installation
 ------------
 
-There are 3 optoins:
+First aquire the [X2JS][] library (this comes bundled with the bower option described next)
+
+Then there are 3 optoins:
 
 1. Download the latest tag.
 2. Use bower: `bower i --save angular-xml`
