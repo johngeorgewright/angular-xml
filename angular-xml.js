@@ -18,7 +18,7 @@ if (!X2JS) {
   function xmlHttpInterceptorFactory($q, x2js) {
     function responseHandler(response) {
       if (response && responseIsXml(response)) {
-        response.xml = x2js.xml_str2json(response.data);
+        response.data = x2js.xml_str2json(response.data);
         return response;
       } else {
         return $q.when(response);

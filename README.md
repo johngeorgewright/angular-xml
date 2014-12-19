@@ -79,9 +79,8 @@ angular
     $httpProvider.interceptors.push('xmlHttpInterceptor');
   })
   .controller(function ($scope, $http) {
-    // We must use .then() and not .success()
-    $http.get('blogs.xml').then(function (response) {
-      $scope.blogs = response.xml.blogs.blog;
+    $http.get('blogs.xml').success(function (data) {
+      $scope.blogs = data.blogs.blog;
     });
   });
 ```

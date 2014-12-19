@@ -17,8 +17,8 @@
           $httpProvider.interceptors.push('xmlHttpInterceptor');
         })
         .controller('BlogsCtrl', function ($scope, $http) {
-          $http.get('xmlSpec.xml').then(function (response) {
-            $scope.blogs = response.xml.blogs.blog;
+          $http.get('xmlSpec.xml').success(function (data) {
+            $scope.blogs = data.blogs.blog;
           });
         });
     </script>
