@@ -64,7 +64,7 @@ angular
 Using the HTTP interceptor
 --------------------------
 
-The HTTP interceptor will convert all your XML responses in to a JavaScript Object and place the object as an attribute called `xml` on the response.
+The HTTP interceptor will convert all your XML responses in to a JavaScript Object.
 
 ```xml
 <blogs>
