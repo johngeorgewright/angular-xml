@@ -67,12 +67,14 @@ Using the HTTP interceptor
 The HTTP interceptor will convert all your XML responses in to a JavaScript Object.
 
 ```xml
+<!-- blogs.xml -->
 <blogs>
   <blog name="my first blog" id="1"/>
 </blogs>
 ```
 
 ```js
+// blogs.js
 angular
   .module('blogs', ['xml'])
   .config(function ($httpProvider) {
