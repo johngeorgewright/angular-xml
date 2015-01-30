@@ -5,11 +5,9 @@ if (!X2JS) {
 (function(ng, X2JS) {
 
   function responseIsXml(response) {
-    var contentType = response.headers('content-type'),
-        XML = '/xml',
-        minIndex = 'text/xml'.indexOf(XML);
+    var contentType = response.headers('content-type');
     if (contentType) {
-      return contentType.indexOf(XML) >= minIndex;
+      return contentType.search(/\Wxml/i) > -1;
     } else {
       return false;
     }
