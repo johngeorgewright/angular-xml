@@ -75,6 +75,12 @@ describe('xml', function () {
       expect(x2js.xml_str2json).toHaveBeenCalled();
     });
 
+    it('will work with engine generated rss feeds, with alternate response headers', function () {
+      responseHeaders.andReturn('application/rss+xml');
+      respond();
+      expect(x2js.xml_str2json).toHaveBeenCalled();
+    });       
+
     it('will only act on a XML response', function () {
       responseHeaders.andReturn('text/html');
       respond();
