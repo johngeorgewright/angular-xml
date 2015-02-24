@@ -23,6 +23,13 @@ module.exports = function(grunt) {
         options: {
           middleware: function (connect, options, middleware) {
             middleware.unshift(function (req, res, next) {
+              if (req.url == '/401') {
+                res.statusCode = 401;
+                res.setHeader('Content-Type', 'application/xml');
+                res.end('<?xml version="1.0"?><configuration><title>myapp</title></configuration>');
+                return;
+              }
+
               if (req.method === 'GET') {
                 res.setHeader('Cache-control', 'public, max-age=3600');
               }

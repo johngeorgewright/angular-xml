@@ -53,6 +53,13 @@ describe('xml', function () {
       });
     }
 
+    function respondWithError() {
+      $xmlHttpInterceptor.responseError({
+        data: xmlString,
+        headers: responseHeaders
+      });
+    }
+
     it('will check for the content-type', function () {
       respond();
       expect(responseHeaders).toHaveBeenCalledWith('content-type');
@@ -91,6 +98,12 @@ describe('xml', function () {
       responseHeaders.andReturn(null);
       respond();
       expect(x2js.xml_str2json).not.toHaveBeenCalled();
+    });
+
+    it('will also convert error responses', function () {
+      responseHeaders.andReturn('application/xml');
+      respondWithError();
+      expect(x2js.xml_str2json).toHaveBeenCalled();
     });
 
   });

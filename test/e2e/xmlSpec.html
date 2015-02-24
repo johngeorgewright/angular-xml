@@ -4,6 +4,7 @@
     <title>XML e2e testing</title>
   </head>
   <body ng-controller="BlogsCtrl">
+    <p>login required for {{title}}</p>
     <ul class="blogs">
       <li ng-repeat="blog in blogs">{{blog._id}} - {{blog._name}}</li>
     </ul>
@@ -19,6 +20,9 @@
         .controller('BlogsCtrl', function ($scope, $http) {
           $http.get('xmlSpec.xml').success(function (data) {
             $scope.blogs = data.blogs.blog;
+          });
+          $http.get('/401').error(function (data) {
+            $scope.title = data.configuration.title;
           });
         });
     </script>
