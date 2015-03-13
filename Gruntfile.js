@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         options: {
           middleware: function (connect, options, middleware) {
             middleware.unshift(function (req, res, next) {
-              if (req.url == '/401') {
+              if (req.url === '/401') {
                 res.statusCode = 401;
                 res.setHeader('Content-Type', 'application/xml');
                 res.end('<?xml version="1.0"?><configuration><title>myapp</title></configuration>');
@@ -146,4 +146,3 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', ['connect:test-server', 'watch']);
 
 };
-
