@@ -35,7 +35,7 @@ describe('xml', function () {
     var responseHeaders, x2js, $xmlHttpInterceptor;
 
     beforeEach(module(function ($provide) {
-      responseHeaders = jasmine.createSpy('response.headers').andReturn('application/xml');
+      responseHeaders = jasmine.createSpy('response.headers').and.returnValue('application/xml');
       x2js = {
         xml_str2json: jasmine.createSpy('xxml_str2json')
       };
@@ -71,37 +71,37 @@ describe('xml', function () {
     });
 
     it('will also work with the text/xml content-type', function () {
-      responseHeaders.andReturn('text/xml');
+      responseHeaders.and.returnValue('text/xml');
       respond();
       expect(x2js.xml_str2json).toHaveBeenCalled();
     });
 
     it('will also work when then content-type has extra parameters', function () {
-      responseHeaders.andReturn('application/xml, charset=UTF-8');
+      responseHeaders.and.returnValue('application/xml, charset=UTF-8');
       respond();
       expect(x2js.xml_str2json).toHaveBeenCalled();
     });
 
     it('will work with engine generated rss feeds, with alternate response headers', function () {
-      responseHeaders.andReturn('application/rss+xml');
+      responseHeaders.and.returnValue('application/rss+xml');
       respond();
       expect(x2js.xml_str2json).toHaveBeenCalled();
-    });       
+    });
 
     it('will only act on a XML response', function () {
-      responseHeaders.andReturn('text/html');
+      responseHeaders.and.returnValue('text/html');
       respond();
       expect(x2js.xml_str2json).not.toHaveBeenCalled();
     });
 
     it('will only act on a response with a content-type', function () {
-      responseHeaders.andReturn(null);
+      responseHeaders.and.returnValue(null);
       respond();
       expect(x2js.xml_str2json).not.toHaveBeenCalled();
     });
 
     it('will also convert error responses', function () {
-      responseHeaders.andReturn('application/xml');
+      responseHeaders.and.returnValue('application/xml');
       respondWithError();
       expect(x2js.xml_str2json).toHaveBeenCalled();
     });
