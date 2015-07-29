@@ -82,7 +82,7 @@ angular
   })
   .controller(function ($scope, $http) {
     $http.get('blogs.xml').success(function (data) {
-      $scope.blogs = data.blogs.blog;
+      $scope.blogs = data.blogs;
     });
   });
 ```
