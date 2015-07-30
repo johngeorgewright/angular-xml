@@ -32,6 +32,8 @@ angular
   });
 ```
 
+For any more information on how to configure and use the X2JS service, [see their project][X2JS].
+
 Accessing the X2JS service
 --------------------------
 
