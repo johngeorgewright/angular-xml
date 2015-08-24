@@ -2,7 +2,7 @@
   "name": "angular-xml",
   "version": "2.1.1",
   "description": "XML module for AngularJS.",
-  "main": "angular-xml.js",
+  "main": "./index.js",
   "directories": {
     "test": "test"
   },
