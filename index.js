@@ -1,2 +1,2 @@
-require('angular-xml.js');
+require('./angular-xml.js');
 module.exports = 'xml';
