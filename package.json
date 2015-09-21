@@ -27,7 +27,9 @@
     "e2e": "grunt test:e2e",
     "jshint": "grunt jshint",
     "compile": "grunt http",
-    "update-webdriver-manager": "node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update"
+    "update-webdriver-manager": "node_modules/grunt-protractor-runner/node_modules/.bin/webdriver-manager update",
+    "hook-git": "ln -s ../../git-hooks/pre-commit.sh .git/hooks/pre-commit",
+    "unhook-git": "rm .git/hooks/pre-commit"
   },
   "repository": {
     "type": "git",
