@@ -1,5 +1,7 @@
-/*global module:false, __dirname:false*/
+/*eslint-env node*/
+
 module.exports = function(grunt) {
+  'use strict';
 
   // Project configuration.
   grunt.initConfig({

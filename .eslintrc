@@ -1,0 +1,29 @@
+{
+    "rules": {
+        "indent": [
+            1,
+            2
+        ],
+        "quotes": [
+            1,
+            "single"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            1,
+            "always"
+        ],
+        "camelcase": 0,
+        "no-shadow": 0
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+      "angular": false,
+      "X2JS": false
+    }
+}
