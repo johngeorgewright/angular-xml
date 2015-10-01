@@ -112,7 +112,7 @@ angular
 Installation
 ------------
 
-First aquire the [X2JS][] library (this comes bundled with the bower option described next)
+First acquire the [X2JS][] library (this comes bundled with the bower option described next)
 
 Then there are 3 optoins:
 
