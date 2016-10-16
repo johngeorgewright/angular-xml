@@ -24,7 +24,7 @@
   "scripts": {
     "lint": "eslint .",
     "serve": "node test/server",
-    "dev": "concurrently --kill-others \"node test/server\" \"nodemon -x 'npm test'\"",
+    "dev": "concurrently --kill-others \"node test/server\" \"nodemon -x 'npm run lint && npm run unit && protractor test/e2e.conf.js'\"",
     "test": "npm run lint && npm run unit && npm run e2e",
     "unit": "karma start test/unit.conf.js --no-auto-watch --single-run",
     "e2e": "concurrently --kill-others \"node test/server\" \"protractor test/e2e.conf.js\"",
