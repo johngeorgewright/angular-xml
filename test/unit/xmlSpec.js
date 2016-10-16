@@ -1,4 +1,5 @@
 describe('xml', function () {
+  'use strict';
 
   var xmlString = '<tests><test id="1"/></tests>';
 
@@ -109,4 +110,3 @@ describe('xml', function () {
   });
 
 });
-

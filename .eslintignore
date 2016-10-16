@@ -1,0 +1,3 @@
+bower_components
+*.min.js
+node_modules

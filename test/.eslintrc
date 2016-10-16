@@ -1,0 +1,34 @@
+{
+    "rules": {
+        "indent": [
+            1,
+            2
+        ],
+        "quotes": [
+            1,
+            "single"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            1,
+            "always"
+        ],
+        "camelcase": 0
+    },
+    "env": {
+        "browser": true,
+        "jasmine": true
+    },
+    "globals": {
+      "angular": false,
+      "browser": false,
+      "by": false,
+      "element": false,
+      "inject": false,
+      "module": false,
+      "X2JS": false
+    }
+}

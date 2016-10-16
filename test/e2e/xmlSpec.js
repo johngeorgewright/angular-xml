@@ -1,4 +1,5 @@
 describe('x2js', function () {
+  'use strict';
 
   beforeEach(function () {
     browser.get('/test/e2e/xmlSpec.html');
@@ -13,4 +14,3 @@ describe('x2js', function () {
   });
 
 });
-
