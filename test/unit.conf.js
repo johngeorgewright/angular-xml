@@ -21,10 +21,18 @@ module.exports = function (config) {
       '**/*.swp'
     ],
 
+    preprocessors: {
+      'angular-xml.js': 'coverage'
+    },
+
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit'
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
+    coverageReporter: {
+      type : 'lcovonly',
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,
