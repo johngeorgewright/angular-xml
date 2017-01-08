@@ -47,12 +47,12 @@ angular
           MyChild : 'my_child_value',
           MyAnotherChild: 10,
           MyArray : [ 'test', 'test2' ],
-          MyArrayRecords : [ 
+          MyArrayRecords : [
             {
-              ttt : 'vvvv' 
+              ttt : 'vvvv'
             },
             {
-              ttt : 'vvvv2' 
+              ttt : 'vvvv2'
             }
           ]
         }
@@ -138,7 +138,7 @@ The unit tests run with [Karma](http://karma-runner.github.io/0.12/index.html) a
 #### Update the webdriver
 
 ```
-npm run update-webdriver-manager
+npm run update-webdriver
 ```
 
 #### Run the test suite
@@ -171,4 +171,3 @@ npm run unhook-git
 ```
 
 Now when you change the `angular-xml.js` file and commit it, it will be linted, tested and if all is OK, then compiled and the minified version wil be added to your commit.
-
