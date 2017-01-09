@@ -1,6 +1,6 @@
 [X2JS]: https://code.google.com/p/x2js/
 
-[![Codecov](https://img.shields.io/codecov/c/johngeorgewright/angular-xml/master.svg?style=flat-square)](https://codecov.io/gh/johngeorgewright/angular-xml)
+[![Codecov](https://img.shields.io/codecov/c/github/johngeorgewright/angular-xml/master.svg?style=flat-square)](https://codecov.io/gh/johngeorgewright/angular-xml)
 [![Build Status](https://img.shields.io/travis/johngeorgewright/angular-xml/master.svg?style=flat-square)](https://travis-ci.org/johngeorgewright/angular-xml)
 [![NPM Version](https://img.shields.io/npm/v/angular-xml.svg?style=flat-square)](https://www.npmjs.com/package/angular-xml)
 [![Dependencies](https://img.shields.io/gemnasium/johngeorgewright/angular-xml.svg?style=flat-square)](https://gemnasium.com/github.com/johngeorgewright/angular-xml)
