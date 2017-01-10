@@ -20,7 +20,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-script-launcher": "^1.0.0",
     "nodemon": "^1.11.0",
-    "protractor": "^4.0.9"
+    "protractor": "^5.0.0"
   },
   "scripts": {
     "lint": "eslint .",
