@@ -17,7 +17,6 @@
     "karma-coverage": "^1.1.1",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.2",
     "karma-script-launcher": "^1.0.0",
     "nodemon": "^1.11.0",
     "protractor": "^5.0.0"
