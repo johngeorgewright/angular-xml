@@ -10,6 +10,8 @@
 angular-xml
 ===========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/johngeorgewright/angular-xml.svg)](https://greenkeeper.io/)
+
 > XML module for AngularJS.
 
 **As of v2.0.0 this module relies on the X2JS module**
