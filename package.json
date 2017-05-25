@@ -3,12 +3,19 @@
   "version": "2.2.2",
   "description": "XML module for AngularJS.",
   "main": "./index.js",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "directories": {
     "test": "test"
   },
   "devDependencies": {
     "codecov": "^1.0.1",
+    "commitizen": "^2.9.6",
     "concurrently": "^3.1.0",
+    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^3.8.0",
     "express": "^4.14.0",
     "istanbul": "^0.4.5",
