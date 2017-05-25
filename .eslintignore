@@ -1,3 +1,4 @@
 bower_components
+coverage
 *.min.js
 node_modules
