@@ -11,6 +11,8 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 3
 
+script: yarn test
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
