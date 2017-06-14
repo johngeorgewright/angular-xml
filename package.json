@@ -34,7 +34,7 @@
     "dev": "concurrently --kill-others \"npm run serve\" \"nodemon -x 'npm run lint && npm run unit && protractor test/e2e.conf.js'\"",
     "test": "npm run lint && npm run unit && npm run e2e",
     "unit": "karma start test/unit.conf.js --no-auto-watch --single-run",
-    "e2e": "concurrently --kill-others \"npm run serve\" \"protractor test/e2e.conf.js\"",
+    "e2e": "concurrently --kill-others --success first \"npm run serve\" \"protractor test/e2e.conf.js\"",
     "compile": "curl \"http://closure-compiler.appspot.com/compile\" -X POST --data output_info=compiled_code --data output_format=text --data compilation_level=SIMPLE_OPTIMIZATIONS --data warning_level=default --data-urlencode \"js_code=$(cat angular-xml.js)\" > angular-xml.min.js",
     "update-webdriver": "webdriver-manager update",
     "hook-git": "ln -s ../../git-hooks/pre-commit.sh .git/hooks/pre-commit",
