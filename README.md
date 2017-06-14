@@ -6,11 +6,10 @@
 [![Bower](https://img.shields.io/bower/v/angular-xml.svg)](https://libraries.io/bower/angular-xml)
 [![Dependencies](https://img.shields.io/gemnasium/johngeorgewright/angular-xml.svg?style=flat-square)](https://gemnasium.com/github.com/johngeorgewright/angular-xml)
 [![License](https://img.shields.io/npm/l/angular-xml.svg?style=flat-square)](https://github.com/johngeorgewright/angular-xml/blob/master/LICENSE)
+[![Greenkeeper badge](https://badges.greenkeeper.io/johngeorgewright/angular-xml.svg)](https://greenkeeper.io/)
 
 angular-xml
 ===========
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/johngeorgewright/angular-xml.svg)](https://greenkeeper.io/)
 
 > XML module for AngularJS.
 
