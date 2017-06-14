@@ -1,18 +1,18 @@
 language: node_js
 
 addons:
-  chrome: stable
+  sauce_connect: true
 
 before_script:
-  - yarn global add bower
+  - npm i -g bower
   - bower i
-  - yarn run update-webdriver
-  - export CHROME_BIN=/usr/bin/google-chrome
+  - npm run update-webdriver
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
 
-script: yarn test
+script:
+  - npm run test-travis
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
