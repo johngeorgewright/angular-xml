@@ -8,7 +8,8 @@
 [![License](https://img.shields.io/npm/l/angular-xml.svg?style=flat-square)](https://github.com/johngeorgewright/angular-xml/blob/master/LICENSE)
 [![Greenkeeper badge](https://badges.greenkeeper.io/johngeorgewright/angular-xml.svg)](https://greenkeeper.io/)
 
-[![Sauce Test Status](https://saucelabs.com/buildstatus/angular-xml)](https://saucelabs.com/u/angular-xml)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-xml.svg)](https://saucelabs.com/u/angular-xml)
+
 
 angular-xml
 ===========
