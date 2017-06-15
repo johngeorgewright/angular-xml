@@ -6,8 +6,14 @@ exports.config = {
   baseUrl: 'http://localhost:8000',
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
-  capabilities: {
+  multiCapabilities: [{
     browserName: 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
-  }
+  }, {
+    browserName: 'firefox',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
+  }, {
+    browserName: 'internet explorer',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
+  }]
 };
