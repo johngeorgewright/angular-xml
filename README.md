@@ -129,7 +129,7 @@ Then there are 3 optoins:
 
 1. Download the latest tag.
 2. Use bower: `bower i --save angular-xml`
-3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/angular.xml/2.2.1/angular-xml.min.js`
+3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/npm/angular-xml@2.2.2/angular-xml.min.js`
 
 Contributing
 ------------
