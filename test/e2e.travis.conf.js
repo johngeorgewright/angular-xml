@@ -18,5 +18,6 @@ exports.config = {
   }, {
     browserName: 'safari',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
-  }]
+  }],
+  getPageTimeout: 2000
 };
