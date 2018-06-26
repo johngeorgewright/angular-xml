@@ -12,11 +12,11 @@
     "test": "test"
   },
   "devDependencies": {
-    "codecov": "^2.2.0",
+    "codecov": "^3.0.1",
     "commitizen": "^2.9.6",
     "concurrently": "^3.4.0",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^4.1.1",
+    "eslint": "^5.0.1",
     "express": "^4.15.3",
     "istanbul": "^0.4.5",
     "karma": "^2.0.4",
