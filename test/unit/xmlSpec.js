@@ -6,15 +6,12 @@ describe('xml', function () {
   beforeEach(module('xml'));
 
   describe('x2js', function () {
-
     it('will be an instance of X2JS', inject(function (x2js) {
       expect(x2js instanceof X2JS).toBe(true);
     }));
-
   });
 
   describe('x2jsProvider', function () {
-
     var X2JS, config;
 
     beforeEach(module(function ($provide, x2jsProvider) {
@@ -28,11 +25,9 @@ describe('xml', function () {
       expect(x2js).not.toBeUndefined();
       expect(X2JS).toHaveBeenCalledWith(config);
     }));
-
   });
 
   describe('httpInterceptor', function () {
-
     var responseHeaders, x2js, $xmlHttpInterceptor;
 
     beforeEach(module(function ($provide) {
@@ -106,7 +101,5 @@ describe('xml', function () {
       respondWithError();
       expect(x2js.xml_str2json).toHaveBeenCalled();
     });
-
   });
-
 });

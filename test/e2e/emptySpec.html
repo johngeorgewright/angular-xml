@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="blogs">
+  <head>
+    <title>XML e2e testing</title>
+  </head>
+  <body ng-controller="BlogsCtrl">
+    <p>login required for {{title}}</p>
+    <ul class="blogs">
+      <li ng-repeat="blog in blogs">{{blog._id}} - {{blog._name}}</li>
+    </ul>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/x2js/xml2json.js"></script>
+    <script src="/angular-xml.js"></script>
+    <script>
+      angular
+        .module('blogs', ['xml'])
+        .config(function ($httpProvider) {
+          $httpProvider.interceptors.push({
+            response: function (response) {
+              return undefined
+            },
+            responseError: function (response) {
+              return undefined
+            }
+          })
+          $httpProvider.interceptors.push('xmlHttpInterceptor');
+        })
+        .controller('BlogsCtrl', function ($scope, $http) {
+          $http.get('xmlSpec.xml').success(function (data) {
+            $scope.blogs = data.blogs.blog;
+          });
+        });
+    </script>
+  </body>
+</html>

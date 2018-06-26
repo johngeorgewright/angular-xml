@@ -3,8 +3,13 @@
 [![Codecov](https://img.shields.io/codecov/c/github/johngeorgewright/angular-xml/master.svg?style=flat-square)](https://codecov.io/gh/johngeorgewright/angular-xml)
 [![Build Status](https://img.shields.io/travis/johngeorgewright/angular-xml/master.svg?style=flat-square)](https://travis-ci.org/johngeorgewright/angular-xml)
 [![NPM Version](https://img.shields.io/npm/v/angular-xml.svg?style=flat-square)](https://www.npmjs.com/package/angular-xml)
+[![Bower](https://img.shields.io/bower/v/angular-xml.svg)](https://libraries.io/bower/angular-xml)
 [![Dependencies](https://img.shields.io/gemnasium/johngeorgewright/angular-xml.svg?style=flat-square)](https://gemnasium.com/github.com/johngeorgewright/angular-xml)
 [![License](https://img.shields.io/npm/l/angular-xml.svg?style=flat-square)](https://github.com/johngeorgewright/angular-xml/blob/master/LICENSE)
+[![Greenkeeper badge](https://badges.greenkeeper.io/johngeorgewright/angular-xml.svg)](https://greenkeeper.io/)
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-xml.svg)](https://saucelabs.com/u/angular-xml)
+
 
 angular-xml
 ===========
@@ -124,7 +129,7 @@ Then there are 3 optoins:
 
 1. Download the latest tag.
 2. Use bower: `bower i --save angular-xml`
-3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/angular.xml/2.2.1/angular-xml.min.js`
+3. Or use jsDelivr CDN: `//cdn.jsdelivr.net/npm/angular-xml@2.2.2/angular-xml.min.js`
 
 Contributing
 ------------
