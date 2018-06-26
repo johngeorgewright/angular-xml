@@ -15,9 +15,8 @@ exports.config = {
   }, {
     browserName: 'internet explorer',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
-  }, {
-    browserName: 'safari',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
-  }],
-  getPageTimeout: 2000
+  // }, {
+    // browserName: 'safari',
+    // 'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
+  }]
 };
