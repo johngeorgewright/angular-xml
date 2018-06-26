@@ -3,6 +3,13 @@ language: node_js
 addons:
   sauce_connect: true
 
+before_install:
+  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest'
+  - npm install -g greenkeeper-lockfile@1
+
+install:
+  - '[[ $TRAVIS_BRANCH == greenkeeper/* ]] && npm install || npm ci'
+
 before_script:
   - npm i -g bower
   - bower i
@@ -14,8 +21,15 @@ before_script:
 script:
   - npm run test-travis
 
+after_script:
+  - greenkeeper-lockfile-upload
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: false
+  
+env:
+  global:
+    secure: rjXS5iQeUkdesaW1RUtTur1ulNhZfhfOF2dlTyG14my80GdAT0g+kmIa2xZI6pB16Im+WJGO4CTzzzHOSetw+shnCHrccz5CTDTMINE1j9hTqP40rAkHDMPA1pOt3fmFbQ5cZxGLtu6BaDkL2Z6mSvQ7exIzMdFmTG36l9lXPGc=
