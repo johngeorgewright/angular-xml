@@ -8,7 +8,7 @@ before_install:
   - npm install -g greenkeeper-lockfile@1
 
 install:
-  - '[[ $TRAVIS_BRANCH == greenkeeper/* ]] && npm install || npm ci'
+  - npm ci || npm install
 
 before_script:
   - npm i -g bower
