@@ -1,21 +1,13 @@
 #!/usr/bin/env sh
 
-command()
-{
-  $@
-  code=$?
-  if [ $code -gt 0 ]
-  then
-    exit $code
-  fi
-}
+set -e
 
-changed=`git diff --cached --name-only | grep angular-xml.js`
+changed=$(git diff --cached --name-only | grep angular-xml.js || :)
 
 if [ $changed ]
 then
-  command npm test
-  command npm run compile
+  npm test
+  npm run compile
   git add angular-xml.min.js
 fi
 
