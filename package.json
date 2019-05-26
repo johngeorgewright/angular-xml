@@ -17,7 +17,7 @@
     "concurrently": "^4.0.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.16.0",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "istanbul": "^0.4.5",
     "jasmine-core": "^3.4.0",
     "karma": "^4.1.0",
