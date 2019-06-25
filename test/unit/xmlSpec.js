@@ -16,7 +16,7 @@ describe('xml', function () {
 
     beforeEach(module(function ($provide, x2jsProvider) {
       X2JS = jasmine.createSpy('X2JS');
-      config = {mung: 'face'};
+      config = { mung: 'face' };
       x2jsProvider.config = config;
       $provide.value('X2JS', X2JS);
     }));
@@ -42,14 +42,14 @@ describe('xml', function () {
       $xmlHttpInterceptor = xmlHttpInterceptor;
     }));
 
-    function respond() {
+    function respond () {
       $xmlHttpInterceptor.response({
         data: xmlString,
         headers: responseHeaders
       });
     }
 
-    function respondWithError() {
+    function respondWithError () {
       $xmlHttpInterceptor.responseError({
         data: xmlString,
         headers: responseHeaders

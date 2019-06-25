@@ -12,5 +12,4 @@ describe('x2js', function () {
   it('display configuration title', function () {
     expect(element(by.binding('title')).getText()).toEqual('login required for myapp');
   });
-
 });
