@@ -54,11 +54,6 @@ module.exports = function (config) {
       SLFirefox: {
         base: 'SauceLabs',
         browserName: 'firefox',
-        connectOptions: {
-          accessKey: process.env.SAUCE_ACCESS_KEY,
-          tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
-          username: process.env.SAUCE_USERNAME
-        },
         version: '67'
       }
     },
@@ -78,7 +73,13 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    sauceLabs: {
+      accessKey: process.env.SAUCE_ACCESS_KEY,
+      tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
+      username: process.env.SAUCE_USERNAME
+    }
 
   });
 };
