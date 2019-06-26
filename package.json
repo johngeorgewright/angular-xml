@@ -30,6 +30,7 @@
     "karma-coverage": "^1.1.2",
     "karma-firefox-launcher": "^1.1.0",
     "karma-jasmine": "^2.0.0",
+    "karma-sauce-launcher": "^2.0.2",
     "karma-script-launcher": "^1.0.0",
     "nodemon": "^1.19.0",
     "protractor": "^5.4.2"
@@ -38,7 +39,7 @@
     "lint": "eslint .",
     "serve": "node test/server",
     "dev": "concurrently --kill-others \"npm run serve\" \"nodemon -x 'npm run lint && npm run unit && protractor test/e2e.conf.js'\"",
-    "test-travis": "npm run lint && npm run unit -- --browsers Firefox && npm run e2e-travis",
+    "test-travis": "npm run lint && npm run unit -- --browsers SLFirefox && npm run e2e-travis",
     "test": "npm run lint && npm run unit && npm run e2e",
     "unit": "karma start test/unit.conf.js --no-auto-watch --single-run",
     "e2e": "concurrently --kill-others --success first \"npm run serve\" \"protractor test/e2e.conf.js\"",

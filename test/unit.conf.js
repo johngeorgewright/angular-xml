@@ -50,6 +50,14 @@ module.exports = function (config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
+    customLaunchers: {
+      SLFirefox: {
+        base: 'SauceLabs',
+        browserName: 'firefox',
+        version: '67'
+      }
+    },
+
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
