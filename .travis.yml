@@ -3,21 +3,12 @@ language: node_js
 addons:
   sauce_connect: true
 
-dist: xenial
-
-services:
-  - xvfb
-
-before_install:
-  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest'
-
 install:
   - npm ci || npm install
 
 before_script:
   - npx bower i
   - npm run update-webdriver
-  - xvfb-run make test
 
 script:
   - npm run test-travis
