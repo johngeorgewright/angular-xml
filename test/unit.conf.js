@@ -54,6 +54,11 @@ module.exports = function (config) {
       SLFirefox: {
         base: 'SauceLabs',
         browserName: 'firefox',
+        connectOptions: {
+          accessKey: process.env.SAUCE_ACCESS_KEY,
+          tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
+          username: process.env.SAUCE_USERNAME
+        },
         version: '67'
       }
     },
