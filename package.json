@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "codecov": "3.5.0",
-    "commitizen": "^3.1.1",
+    "commitizen": "^4.0.1",
     "concurrently": "^4.0.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.16.0",
