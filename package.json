@@ -24,7 +24,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",
     "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^2.0.0",
+    "karma-jasmine": "^3.2.0",
     "karma-script-launcher": "^1.0.0",
     "nodemon": "^1.19.0",
     "protractor": "^5.4.2"
